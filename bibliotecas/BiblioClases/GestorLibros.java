@@ -13,19 +13,21 @@ public class GestorLibros {
 			switch (opcion) {
 			case Menu.INSERTAR_LIBROS:
 				System.out.println("Insertar Libro");
+				Libro nlibro=pedirDatosLibro(scan);
 				gesto.Conectar();
-				gesto.insertarLibro(null);
+				gesto.insertarLibro(nlibro);
 				gesto.cerrar();
 				break;
 			case Menu.ELIMINAR_LIBROS:
 				System.out.println("Eliminar Libro");
+				System.out.println("Di la id del libro");
 				gesto.Conectar();
-				gesto.eliminarLibro(0);
+				gesto.eliminarLibro(Integer.parseInt(scan.nextLine()));
 				gesto.cerrar();
 				break;
 			case Menu.VER_LIBROS:
 				System.out.println("Ver Libro");
-				gesto.getLibro(0);
+				Visor.mostrarLibros(gesto.getLibros());
 				break;
 			case Menu.SALIR:
 				System.out.println("Saliendo");
@@ -37,5 +39,14 @@ public class GestorLibros {
 				break;
 			}
 		} while (opcion!=0);
+	}
+	public static Libro pedirDatosLibro(Scanner scan) {
+		Libro libro = new Libro();
+		System.out.println("Introduce el titulo del libro");
+		libro.setTitulo(scan.nextLine());
+		System.out.println("Introduce el autor");
+		libro.setAutor(scan.nextLine());
+		
+		return libro;
 	}
 }

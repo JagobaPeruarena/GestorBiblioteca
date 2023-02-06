@@ -12,20 +12,21 @@ public class GestorSocios {
 			opcion = Integer.parseInt(scan.nextLine());
 			switch (opcion) {
 			case Menu.INSERTAR_SOCIOS:
-				System.out.println("Insertar Libro");
+				System.out.println("Insertar Socio");
+				Socio nSocio = pedirDatosSocio(scan);
 				gesto.Conectar();
-				gesto.insertarSocio(null);
+				gesto.insertarSocio(nSocio);
 				gesto.cerrar();
 				break;
 			case Menu.ELIMINAR_SOCIOS:
-				System.out.println("Eliminar Libro");
+				System.out.println("Eliminar Socio");
 				gesto.Conectar();
 				gesto.eliminarSocio(0);
 				gesto.cerrar();
 				break;
 			case Menu.VER_SOCIOS:
-				System.out.println("Ver Libro");
-				gesto.getSocio(0);
+				System.out.println("Ver Socios");
+				Visor.mostrarSocios(gesto.getSocios());
 				break;
 			case Menu.SALIR:
 				System.out.println("Saliendo");
@@ -36,4 +37,22 @@ public class GestorSocios {
 			}
 		} while (opcion!=0);
 	}
+	public static Socio pedirDatosSocio(Scanner scan) {
+		Socio socio = new Socio();
+		System.out.println("Introduce el Nombre");
+		socio.setNombre(scan.nextLine());
+		System.out.println("Introduce el Apellido");
+		socio.setApellido(scan.nextLine());
+		System.out.println("Introduce el Direccion");
+		socio.setDireccion(scan.nextLine());
+		System.out.println("Introduce el Poblacion");
+		socio.setPoblacion(scan.nextLine());
+		System.out.println("Introduce el Provincia");
+		socio.setProvincia(scan.nextLine());
+		System.out.println("Introduce el DNI");
+		socio.setDni(scan.nextLine());
+
+		return socio;
+	}
+	
 }
