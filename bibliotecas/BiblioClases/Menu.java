@@ -9,7 +9,9 @@ public class Menu {
 	public static final int ELIMINAR_LIBROS=2;
 	public static final int VER_LIBROS=3;
 	
-	public static final int VER_SOCIOS=1;
+	public static final int INSERTAR_SOCIOS=1;
+	public static final int ELIMINAR_SOCIOS=2;
+	public static final int VER_SOCIOS=3;
 	
 	public static final int REALIZAR_PRESTAMOS=1;
 	
@@ -31,6 +33,8 @@ public class Menu {
 	}
 	public static void mostrarMenuSocios() {
 		System.out.println("Menu Socios:");
+		System.out.println(INSERTAR_SOCIOS+". Insertar Socio");
+		System.out.println(ELIMINAR_SOCIOS+". Eliminar Socio");
 		System.out.println(VER_SOCIOS+". Ver Socios");
 		System.out.println(SALIR+". Salir");
 	}

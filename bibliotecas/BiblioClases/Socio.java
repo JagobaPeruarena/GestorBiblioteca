@@ -61,6 +61,10 @@ public class Socio {
 		this.provincia = provincia;
 		this.dni = dni;
 	}
+	
+	public Socio() {
+		
+	}
 	@Override
 	public String toString() {
 		return id + "," + nombre + "," + apellido + "," + direccion + "," + poblacion + "," + provincia + ","
